@@ -1,0 +1,323 @@
+body {
+	margin:0;
+}
+
+nav {
+	background-color:chocolate;
+	height: 100px;
+}
+
+header {
+	background-color: white;
+	height: 400px;
+	border: 0px;
+}
+
+header.login {
+	background-color: white;
+	height: 400px;
+	border: 0px;
+}
+
+span.prenotazioneForm {
+	font-size: 30px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	background-color:antiquewhite;
+	height: 400px;
+	border: 0px;
+	margin-left: 25%;
+}
+
+footer {
+	font-size: 130%;
+	font-family: Arial, Helvetica, sans-serif;
+	color: aliceblue;
+	background-color: rgb(64, 0, 0);
+	height: 300px;
+	border:0px;
+}
+
+h1.homePage {
+	font-size: 100px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+img.homePage {
+	height: 100%;
+	width: 27%;
+}
+
+p.pieDiPagina {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: aliceblue;
+}
+
+h1.pieDiPagina {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	color: aliceblue;
+}
+
+table {
+	height: 400px;
+	border: 10px;
+	width: 100%;
+}
+
+tr {
+	width: 100%;
+}	
+
+/*input.cerca {
+	background-image:url("/images/br32-removebg-preview (2).png");
+	background-color: transparent;
+	align-items: center;		
+	text-align: center;
+	margin-left: 25%;
+	margin-top: -2.4%;
+	height: 170px;
+	width: 699px;
+	border: 0px solid black;
+	outline: none;
+	font-size: 40px;
+	font-family:Arial, Helvetica, sans-serif;
+	color: lightgray;
+
+}*/
+
+div.search-box{
+	position: absolute;
+	width: 400px;
+	height: 200px;
+	top: 18%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: inline; 
+}  
+
+
+
+input.cerca {
+	position:relative;
+	display: inline;
+	height: 40px;
+	width: calc(100% - 40px);
+	max-width: 500px;
+	border-radius: 30px;
+	border: none;
+	float: left;
+	padding: 0px 30px 0px 30px;
+}
+
+button.button {
+	position:fixed;
+	display: inline;
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	border: none;
+	float: right;
+	background-color: aliceblue;
+}
+
+
+::placeholder {
+	color:chocolate;
+}
+
+h1.cittaInserita {
+	font-size: 50px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	align-items: center;
+	text-align: center;
+}  
+
+h1.cittaElenco {
+	font-size: 50px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	align-items: center;
+	text-align: center;
+}  
+
+h1.luogoInserito {
+	font-size: 50px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	align-items: center;
+	text-align: center;
+}  
+
+h1.form {
+	font-size: 50px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	align-items: center;
+	text-align: center;
+} 
+
+h1.visitaInserita {
+	font-size: 50px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	align-items: center;
+	text-align: center;
+}  
+
+h1.prenotazioneEffettuata {
+	align-items: center;
+	text-align: center;
+	font-size: 100px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+	font-size: 40px;
+	color: chocolate;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+div.prenotazioneForm {
+	align-items: center;
+	text-align: center;
+	background-color: antiquewhite;
+	height: 400px;
+	border: 0px;
+}
+
+div.citta {
+	align-items: center;
+	text-align: center;
+	background-color: antiquewhite;
+	height: 400px;
+	border: 0px;
+}
+
+div.luoghiSucc {
+	align-items: center;
+	text-align: center;
+	background-color: antiquewhite;
+	height: 200px;
+}
+
+div.luogo {
+	align-items: center;
+	text-align: center;
+	background-color: antiquewhite;
+	height: 200px;
+}
+
+
+div.index {
+	align-items: center;
+	text-align: center;
+	background-color: antiquewhite;
+	height: 200px;
+}
+
+div.homePage {
+	align-items: center;
+	text-align: center;
+	background-color: antiquewhite;
+	height: 200px;
+}
+
+div.visita {
+	align-items: center;
+	text-align: center;
+	background-color: antiquewhite;
+	height: 200px;
+}
+
+div.prenotazione {
+	align-items: center;
+	text-align: center;
+	background-color: antiquewhite;
+	height: 200px;
+}
+
+h3.titoloLuogo {
+	border: none;
+	text-align: center;
+	align-items: center;
+	font-size: 25px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+/*fieldset {
+	border-width: 2px;
+	border-bottom:60px burlywood;
+	border-style: inset;
+}*/
+
+
+/*input {
+	
+}*/
+
+  #flex_container {
+	  display: flex;
+	  border: 0px;
+	  height: 400px;
+  }
+  
+  .flex_item{
+	  height: 500px;
+	  width: 400px;
+	  padding-right: 30px;
+  }
+  
+  
+  /**/
+   #flexc {
+	  display: flex;
+	  border: 0px;
+	  height: 200px;
+	  
+  }  
+  
+  .flex-c{
+	  padding-top: 30px;
+	  height: 95px;
+	  width: 350px;
+	  padding-right: 250px;
+  }
+  
+  /**/
+  
+  #flex-container {
+	  display: flex;
+	  border: 0px;
+	  height: 400px;
+  }  
+  
+  .flex {
+	  height: 480px;
+	  width: 350px;
+	  padding-right: 30px;
+  }
+
+
+	/*div.accesso {
+		position: absolute;
+		width: 600px;
+		height: 200px;
+		top: 18%;
+		left: 80%;
+		transform: translate(-5%, -45%);
+		display: inline;
+	}*/
+	
+	div.ciao {
+		font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+		color:black;
+	}
+	
+	h1.titoloLuogo {
+		border: none;
+		text-align: center;
+		align-items: center;
+		font-size: 40px;
+		font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+		font-style: italic;
+	}
+
+	
+	

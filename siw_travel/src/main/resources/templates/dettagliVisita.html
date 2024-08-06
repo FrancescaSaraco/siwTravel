@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwTravel
+	</title>
+	<link rel="stylesheet" href="/css/stile.css?version=2" />
+</head>
+<body>
+	<nav>
+	<header>
+		Tutto quello che c'è da sapere:
+	</header>
+	</nav>
+	<span th:if="${visita}">
+		<p>
+		    (<span th:text="${visita.luogoDiInteresse.nome}"></span>)
+		</p>  
+			<p> 
+				Descrizione:
+				<span th:text="${visita.descrizione}"></span> 
+			</p>
+			<p>
+				Costo: <span th:text="${visita.costoBiglietto}"></span> € <br>
+			</p>
+			<p> 
+			 	Orario di Apertura:
+			 	<span th:text="${visita.orarioApertura}"></span>
+			</p>
+			<p> 
+				Orario Chiusura:
+				<span th:text="${visita.orarioChiusura}"></span>
+			</p>
+			<p> 
+				<ul>
+					<li th:each="giorno : ${visita.giorniApertura}">
+					<span th:text="${giorno}">
+					</span>
+					</li>
+				</ul>
+			</p>
+			<p>
+					<span th:if="${visita.prenotabile}">
+						<button type="submit">
+							<a th:href="@{'/prenotazione' + '/visitaId=' + ${visita.id}}"> <!-- luogoid a sx è solo per specificare meglio la pagina -->
+							PRENOTAZIONE
+						</a>
+						</button>
+					</span>
+					<span th:unless="${visita.prenotabile}">
+						La visita non è prenotabile
+					</span>
+			</p>
+	</span>
+	<span th:unless="${visita}">
+		Non esiste
+	</span>
+	
+</body>
+
+</html>

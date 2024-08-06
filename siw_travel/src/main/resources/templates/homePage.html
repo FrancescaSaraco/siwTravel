@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwTravel
+	</title>
+	<link rel="stylesheet" href="/css/stile.css?version=2" />
+	<script src="https://use.fontawesome.com/d8805b6d62.js"></script>
+</head>
+
+<body>
+	<nav>
+		<div class="search-box">
+			<form th:action="@{/listaLuoghiDiInteresse}" method="get"> <!-- stai mandando Roma alla pagina luogo di interesse -->
+			<input class="cerca" type="text" placeholder="seleziona la citta" name="citta"/>
+			<button type="submit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+			</form>
+		</div>
+		
+		<div class="accesso">
+			<!--<i class="fa fa-user-circle-o" aria-hidden="true"></i>-->
+			
+		</div>
+		<!-- <img class="cerca" src="/images/br32.png"/> -->
+	</nav>
+	<header>
+		<div id="flex-container">
+			<img class="flex" src="/images/IMG_0885.jpg"/>
+			<img class="flex" src="/images/IMG_0349.jpg"/>
+			<img class="flex" src="/images/IMG_0949.jpg"/>
+			<img class="flex" src="/images/IMG_0935.jpg"/>
+		</div>
+	</header>
+	<section>
+		<!-- main paragraph-->
+		<div class="homePage"> 
+				<h1 class="homePage">
+					Siw Travel
+				</h1> 
+			 </div>
+	</section>
+	<footer>
+		<div id="flexc">
+			<span class="flex-c">
+				<h1 class="pieDiPagina">
+			Riferimenti:
+		</h1>
+		
+		<p class="pieDiPagina">
+			<span th:unless="${userDetails}">
+				<a href="/login">
+					Login <br>
+				</a>
+			</span>
+			<span th:if="${userDetails}">
+				<a href="/logout">
+					Logout <br>
+				</a>
+			</span>
+			Tel: 069103224 <br>
+			mail: francesca.saraco200@gmail.com <br>
+			indirizzo Sede Principale: via Vito Volterra 63
+		</p>
+			</span>
+			<img class="flex-c" src="/images/iconee.png"/>
+		</div>
+		
+	</footer>
+</body>
+
+</html>

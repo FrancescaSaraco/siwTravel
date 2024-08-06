@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwTravel
+	</title>
+	<link rel="stylesheet" href="/css/stile.css?version=2" />
+</head>
+
+<body>
+	<nav>
+		<h1 class="prenotazioneEffettuata"> Form per la prenotazione: </h1>
+	</nav>
+		<span class="prenotazioneForm">
+			<form th:action="@{/prenotazione}" method="POST">
+		<p>
+			Ora:
+			<select name="orarioScelto">
+				<option value=""> Selezionare un orario </option>
+				<span th:each="disponibile : ${disponibili}">
+					<option th:value="*{disponibile}">
+					<span th:text="*{disponibile}"> Nome Luogo*: </span>
+					</option>
+					</span>
+				</span>
+			</select>
+		</p>
+			<button type="submit">
+			CONFERMA
+		</button>
+	</form>
+	</span>
+</body>
+
+</html>

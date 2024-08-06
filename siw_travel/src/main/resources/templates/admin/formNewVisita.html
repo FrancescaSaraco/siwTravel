@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwTravel
+	</title>
+	<link rel="stylesheet" href="/css/stile.css?version=2" />
+</head>
+
+<body>
+	<header>
+	Inserisci i dati per una nuova visita:
+    </header>
+	<form th:action="@{/admin/visita}" method="POST">
+		<p>
+			Descrizione*: <input type="text" name="descrizione" />
+		</p>
+		<p>
+			Inserisci costo del biglietto: <input type="text" name="costoBiglietto" />
+		</p>
+		<p>
+			OrarioApertura*: <input type="time" name="orarioApertura" />
+		</p>
+		<p>
+			OrarioChiusura*: <input type="time" name="orarioChiusura" />
+		</p>
+		<p>
+			Luogo in cui avviene la suddetta visita:
+			
+			<select name="nomeLuogo">
+				<option value=""> Scegli un luogo </option>
+			<span th:each="luogoDiInteresse : ${luoghi}"> 
+				<option th:value="*{luogoDiInteresse.nome}">
+				<span th:text="*{luogoDiInteresse.nome}"> Nome Luogo*: </span>
+					</option>
+					</span>
+			</select>
+		</p>
+
+		<p>
+			<fieldset>
+  				<legend>Scegli i giorni di apertura: </legend>
+  				<div>
+    				<input type="checkbox" id="Lunedì" name="giorniApertura" value="Lunedì" />
+    			<label for="coding">Lunedì</label>
+  				</div>
+  				<div>
+    				<input type="checkbox" id="Martedì" name="giorniApertura" value="Martedì" />
+    			<label for="coding">Martedì</label>
+  				</div>
+  				<div>
+    				<input type="checkbox" id="Mercoledì" name="giorniApertura" value="Mercoledì" />
+    			<label for="coding">Mercoledì</label>
+  				</div>
+  				<div>
+    				<input type="checkbox" id="Giovedì" name="giorniApertura" value="Giovedì" />
+    			<label for="coding">Giovedì</label>
+  				</div>
+  				<div>
+    				<input type="checkbox" id="Venerdì" name="giorniApertura" value="Venerdì" />
+    			<label for="coding">Venerdì</label>
+  				</div>
+  				<div>
+    				<input type="checkbox" id="Sabato" name="giorniApertura" value="Sabato" />
+    			<label for="coding">Sabato</label>
+  				</div>
+  				<div>
+    				<input type="checkbox" id="Domenica" name="giorniApertura" value="Domenica" />
+    			<label for="coding">Domenica</label>
+  				</div>
+			</fieldset>
+
+		</p>
+		<p>
+			Prenotabile*:
+			
+			<select name="prenotabile">
+				<option value="false">
+					No
+				</option>
+				<option value="true">
+					Sì
+				</option>
+			</select>
+		</p>
+		<p>
+			<button type="submit">
+				CONFERMA
+			</button>
+		</p>
+		
+	</form>
+</body>
+
+</html>

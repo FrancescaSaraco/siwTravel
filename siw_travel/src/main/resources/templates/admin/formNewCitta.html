@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		
+	</title>
+	<link rel="stylesheet" href="/css/stile.css?version=2" />
+</head>
+
+<body>
+	<nav>
+		
+	</nav>
+	<header>
+		<div class="prenotazioneForm">
+			<!--<fieldset>-->
+			<form th:action="@{/admin/citta}" method="POST">
+			<h1 class="cittaElenco">
+				Aggiungi una citta:
+			</h1>
+			<p>
+				Nome città: <input type="text" name="nome"/>
+			</p>
+			<p>
+				Stato della città: <input type="text" name="stato"/>
+			</p>
+			<span th:text="${messaggioErrore}">
+			Errore
+				</span>
+			<p><button type="submit">
+				CONFERMA
+			</button>
+			</p>
+		<!--</fieldset>-->
+	</form>
+	</div>
+	</header>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwTravel
+	</title>
+	<link rel="stylesheet" href="/css/stile.css?version=2" />
+</head>
+
+<body>
+	<nav>
+		<h1 class="cittaElenco">
+		Città inserite: <span th:text="${numeroCitta}"></span>
+		</h1>
+	</nav>
+	<header>
+		<p>
+		<!-- <div th: if="${cittas.isEmpty()}"> Non ci sono città nel sistema! </div> -->
+		<span th:if="${cittas}">
+			<ul>
+				<li th:each="citta : ${cittas}">
+					<span th:text="${citta.nome} + ' ('+ ${citta.stato} + ')'"> Valencia (Spagna)</span> <!-- Valencia (Spagna) è il pattern di come deve venire sulla pagine-->
+				</li>
+			</ul>
+		</span>
+	</p>
+	</header>
+	<section>
+		<div>
+			
+		</div>
+	</section>
+	
+</body>
+
+</html>

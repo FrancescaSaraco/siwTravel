@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwTravel
+	</title>
+	<link rel="stylesheet" href="/css/stile.css?version=2" />
+</head>
+
+<body>
+	<nav>
+		
+	</nav>
+	<header>
+		<h1 class="visitaInserita">
+		Questi sono i luoghi che abbiamo trovato per te:
+		</h1>
+		<ul th:if="${luoghi}">  <!-- ul unorder list, lista con i puntini-->
+		<li th:each="luogo : ${luoghi}">  <!-- li list item-->
+			<a th:href="@{'/luoghiDellaCitta' + '/' + ${luogo.id}}">  <!-- luogo.id è al posto di /{id} -->
+				<span th:text="*{luogo.nome}">
+				</span>  
+			</a>
+		</li>
+	</ul>
+	</header>
+	<section>
+		<div class="citta"> 
+			<a href="/">
+			Torna alla home
+			</a>
+		</div>
+	</section>
+	
+</body>
+
+</html>

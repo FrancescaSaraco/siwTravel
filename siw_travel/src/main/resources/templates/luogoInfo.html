@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		SiwTravel
+	</title>
+	<link rel="stylesheet" href="/css/stile.css?version=2" />
+</head>
+
+<body>
+	<nav>
+		
+	</nav>
+	<span th:if="${luogo}">
+		<h1 class="titoloLuogo">
+			<b><span th:text="${luogo.nome}"></span></b>		<!-- th:text e' per stampare -->
+		    (<span th:text="${luogo.citta.nome}"></span>)
+		</h1> 
+		 <h3 class="titoloLuogo"> 
+			 	<!--Descrizione: -->
+			 	<span th:text="${luogo.descrizione}"></span>
+			</h3> 
+		
+		<header>
+		<div>
+			<p> 
+				Tipologia: 
+				<span th:text="${luogo.tipologia}"></span>
+			</p>
+			<p> 
+				Indirizzo:
+				<span th:text="${luogo.indirizzo}"></span> 
+			</p>
+			<p> 
+				Valutazione degli utenti: 
+				<span th:text="${luogo.valutazione}"></span>
+			</p>
+		</div>
+			<div>
+					<button type="submit">
+						<a th:href="@{'/visita' + '/luogoId=' + ${luogo.id}}"> <!-- luogoid a sx è solo per specificare meglio la pagina -->
+							Dettagli visita
+						</a>
+					</button>
+				</div>
+			</span>
+	<span th:unless="${luogo}">
+		Non esiste
+	</span>
+	</header>
+	
+	
+	<footer>
+		<br>
+		<br>
+		<br>
+			Tel: 069103224 <br>
+			mail: francesca.saraco200@gmail.com <br>
+			indirizzo Sede Principale: via Vito Volterra 63
+	</footer>
+</body>
+
+</html>
