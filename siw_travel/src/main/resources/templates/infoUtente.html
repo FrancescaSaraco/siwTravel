@@ -37,7 +37,7 @@
 	<div class="signup-text">
 		<ul>
 			<li th:each="prenotazione : ${prenotazioni}">
-				<span th:text="${prenotazione.visita.luogoDiInteresse.nome} + ' ('+ ${prenotazione.orario} + ')'"> </span>
+				<span th:text="${prenotazione.visita.luogoDiInteresse.nome} + ' ( '+ ${prenotazione.data} + ', ' +  ${prenotazione.orario} +  ' )'"> </span>
 					<a th:href="@{'/eliminaPrenotazione' + '/' + ${prenotazione.id}}"
 									th:text="' elimina prenotazione '"></a> 	
 				

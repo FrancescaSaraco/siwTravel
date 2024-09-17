@@ -11,7 +11,10 @@
 	<nav>
 	
 		<div class="logo">
-			<img src="/images/mondo2.png" alt="Logo del Sito">
+			
+			<a th:href="@{'/luoghiDellaCitta' + '/' + ${visita.luogoDiInteresse.id}}">   
+				 <img src="/images/mondo2.png" alt="Logo del Sito"> 
+		    </a>
 		</div>	
 				
 		<div class="signup-text" style="margin-left: 80%;  margin-top: 2%;">

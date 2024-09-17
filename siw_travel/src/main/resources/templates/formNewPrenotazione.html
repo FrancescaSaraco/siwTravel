@@ -12,7 +12,9 @@
 	<nav>
 
 		<div class="logo">
-			<img src="/images/mondo2.png" alt="Logo del Sito">
+			<a th:href="@{'/visita' + '/' + 'luogoId=' + ${visita.luogoDiInteresse.id}}"> 
+				<img src="/images/mondo2.png" alt="Logo del Sito">
+			</a>
 		</div>	
 				
 		<div class="signup-text" style="margin-left: 80%;  margin-top: 2%;">
@@ -28,10 +30,20 @@
 		<div class="login-container" style="margin-top: 10%;">
 			<div id="loginMenu">
 				
-			<h1> Seleziona un orario: </h1>
+			<h1> Seleziona data e orario: </h1>
 		
 		<form th:action="@{'/prenotazione' + '/' + ${visita.id}}" method="POST">
 		<div style="margin-top: 30%; margin-bottom: 30%;">	
+		
+		<div th:object="${prenotazione}">	
+		<p>
+			Data:
+			<div class="item_Form">
+				<input required type="date" th:field="${prenotazione.data}" />
+			</div>
+		</p>	
+		</div>		
+			
 		<p>
 			Ora:
 			<div class="select-wrapper">

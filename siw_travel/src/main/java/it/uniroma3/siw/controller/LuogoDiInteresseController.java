@@ -84,11 +84,11 @@ public class LuogoDiInteresseController {
 		return "elencoLuoghi.html";
 	} 
 	
-	@GetMapping("/luoghiDellaCitta/{id}")		// perchè mi trovo in quella pagina, nell'href si mette l'URL non la pagina html
+	@GetMapping("/luoghiDellaCitta/{id}")		
 	public String ritornaLuogoEffettivo(@PathVariable("id")Long id, Model model) {
-		LuogoDiInteresse luogo = this.luogoDiInteresseService.findById(id).get();		// grazie al get tramite quell'id ottengo proprio il luogo che corrisponde a quell'id
+		LuogoDiInteresse luogo = this.luogoDiInteresseService.findById(id).get();		
 		model.addAttribute("luogo", luogo);
-		return "luogoInfo.html";		// tutto ciò che viene selezionato nell'URL suddetto viene stampato in questa pagina html
+		return "luogoInfo.html";		 
 	}
 	  
 	@GetMapping("/visita/luogoId={id}") 

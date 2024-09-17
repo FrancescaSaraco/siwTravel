@@ -46,20 +46,6 @@ public class CittaController {
 	}
 	
 	
-	/*if(citta.getStato().isEmpty() || citta.getNome().isEmpty()) {
-			model.addAttribute("messaggioErrore", "I due campi sono obbligatori!");
-			return "admin/formNewCitta.html";
-		}
-		if(!cittaService.existsByStatoAndNome(citta.getStato(), citta.getNome())) {
-			this.cittaService.save(citta);
-			model.addAttribute("citta", citta);
-			return "admin/cittaSuccesso.html";
-		} else {
-			model.addAttribute("messaggioErrore", "Questa citta' e' gia' stata inserita!");
-			return "admin/formNewCitta.html";
-		}*/
-	
-	
 	@GetMapping("/admin/cittaSuccesso") 
 	public String gone(){
 		return "cittaSuccesso.html";
@@ -77,6 +63,14 @@ public class CittaController {
 	@GetMapping("/listaLuoghiDiInteresse")
 	public String barraRicerca(@ModelAttribute("citta")String citta, Model model) {
 		Citta cittaEffettiva = this.cittaService.findByNome(citta);
+		model.addAttribute("luoghi", this.luogoService.findByCitta(cittaEffettiva));
+		return "luoghiDellaCitta.html";
+	}
+	
+	// per tornare indietro
+	@GetMapping("/listaLuoghiDiInteresse/{id}")
+	public String comeBack(@PathVariable("id")Long idCitta, Model model) {
+		Citta cittaEffettiva = this.cittaRepository.findById(idCitta).get();
 		model.addAttribute("luoghi", this.luogoService.findByCitta(cittaEffettiva));
 		return "luoghiDellaCitta.html";
 	}

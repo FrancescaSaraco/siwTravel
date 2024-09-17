@@ -115,8 +115,6 @@ public class VisitaController {
 				
 		prenotazione.setIdentificativoBiglietto(generaIdentificativo());
 		
-		//this.visitaService.save(visita);
-		
 		Visita visitaEntita = this.visitaRepository.findById(idVisita).get();
 		
 		prenotazione.setVisita(visitaEntita);
