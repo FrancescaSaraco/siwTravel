@@ -4,7 +4,13 @@ body {
 
 nav {
 	background-color:chocolate;
-	height: 100px;
+	height: 90px;
+	padding: 15px;
+	display: flex;
+}
+
+nav .logo img {
+    height: 75px; 
 }
 
 header {
@@ -28,13 +34,21 @@ span.prenotazioneForm {
 	margin-left: 25%;
 }
 
-footer {
+/*footer {
 	font-size: 130%;
 	font-family: Arial, Helvetica, sans-serif;
 	color: aliceblue;
-	background-color: rgb(64, 0, 0);
+	background-color:;
 	height: 300px;
 	border:0px;
+}*/
+
+footer {
+    background-color: rgb(64, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 h1.homePage {
@@ -68,23 +82,6 @@ table {
 tr {
 	width: 100%;
 }	
-
-/*input.cerca {
-	background-image:url("/images/br32-removebg-preview (2).png");
-	background-color: transparent;
-	align-items: center;		
-	text-align: center;
-	margin-left: 25%;
-	margin-top: -2.4%;
-	height: 170px;
-	width: 699px;
-	border: 0px solid black;
-	outline: none;
-	font-size: 40px;
-	font-family:Arial, Helvetica, sans-serif;
-	color: lightgray;
-
-}*/
 
 div.search-box{
 	position: absolute;
@@ -186,7 +183,8 @@ div.citta {
 	align-items: center;
 	text-align: center;
 	background-color: antiquewhite;
-	height: 400px;
+	margin-top: 10%;
+	height: 200px;
 	border: 0px;
 }
 
@@ -259,8 +257,8 @@ h3.titoloLuogo {
   }
   
   .flex_item{
-	  height: 500px;
-	  width: 400px;
+	  height: 450px;
+	  width: 350px;
 	  padding-right: 30px;
   }
   
@@ -272,6 +270,7 @@ h3.titoloLuogo {
 	  height: 200px;
 	  
   }  
+  
   
   .flex-c{
 	  padding-top: 30px;
@@ -289,8 +288,8 @@ h3.titoloLuogo {
   }  
   
   .flex {
-	  height: 480px;
-	  width: 350px;
+	  height: 467.3px;
+	  width: 500px;
 	  padding-right: 30px;
   }
 
@@ -319,5 +318,141 @@ h3.titoloLuogo {
 		font-style: italic;
 	}
 
+	.section {
+	    background-size: cover;
+	    background-position: center;
+	    height: 100px;
+	    position: relative;
+		margin-bottom: 25%;
+		margin-top: -20%;
+	}
 	
+	.button-confirmV {
+		background-color: darksalmon;
+			color:darkred;
+			display: inline-block;
+			align-items: center;
+			padding: 5px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			font-size: 1.2em;
+			margin-top: -105%;
+			transition: background-color 0.3s ease;
+			margin-left: 50%;
+	}
+
+	.button-confirmV:hover {
+		background-color:antiquewhite;
+	}
 	
+	.signup-text a {
+	    color: darkred ;
+	    text-decoration: underline;
+	}
+
+	.signup-text a:hover {
+	    color:darksalmon;
+	}
+	
+	.l_homePtext a{
+		color: darksalmon ;
+		text-decoration: underline;
+	}
+	
+	.l_homePtext a:hover {
+		    color:antiquewhite;
+		}
+	
+		.select-wrapper {
+		    position: relative;
+		    width: 300px;
+		}
+
+		.styled-select {
+			margin-left: 3%;
+			margin-top: 3%;
+		    width: 100%;
+		    padding: 5.5px;
+		    font-size: 16px;
+		    border-radius: 5px;
+		    appearance: none;
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    background-color: antiquewhite;
+			color:chocolate;
+		    cursor: pointer;
+		}
+
+	
+		.styled-selectPre {
+			margin-left: 20%;
+			margin-top: 3%;
+			width: 100%;
+			padding: 5.5px;
+			font-size: 16px;
+			border-radius: 5px;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			background-color: antiquewhite;
+			color:chocolate;
+			cursor: pointer;
+		}
+		
+		
+		.button-confirmP {
+				background-color: darkred;
+					color:white;
+					display: inline-block;
+					align-items: center;
+					padding: 2px;
+					border: none;
+					border-radius: 5px;
+					font-size: 1em;
+					margin-top: -105%;
+					transition: background-color 0.3s ease;
+					margin-top: 5%;
+					font-size: 25px;
+			}
+
+			.button-confirmP:hover {
+				background-color: darksalmon;
+			}
+			
+			.item_Form input {
+				margin-top: 5%;
+			    width: 100%;
+			    padding: 5.5px;
+			    border: none;
+			    border-radius: 5px;
+			    font-size: 1em;
+			    background-color: antiquewhite;
+				color:  chocolate;
+			}
+			
+			
+			
+			#loginMenu{
+				background-color: #ffffff;
+				   padding: 40px;
+				   border-radius: 20px; /* Arrotonda gli angoli */
+				   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+				   text-align: center;
+				   width: 100%;
+				   max-width: 400px;
+				   top: 15%;
+				   left: 34%;
+				   right: 40%;
+				   width: 490px;
+				   height: 560px;
+				   margin-top: 2%;
+			}
+
+			.login-container {
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    height: 100%;
+			}	
+		

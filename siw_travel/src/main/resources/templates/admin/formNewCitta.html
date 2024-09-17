@@ -5,37 +5,61 @@
 	<title>
 		
 	</title>
-	<link rel="stylesheet" href="/css/stile.css?version=2" />
+	<link rel="stylesheet" href="/css/style.css?version=2" />
 </head>
 
 <body>
 	<nav>
-		
+		<div class="logo">
+			<img src="/images/mondo2.png" alt="Logo del Sito">
+		</div>
+		<div class="signup-text">
+			<a href="/logout">
+				Logout
+		</a>
+		</div>
 	</nav>
 	<header>
-		<div class="prenotazioneForm">
-			<!--<fieldset>-->
+		<div class="titolo">
+		<h1> FORM AGGIUNGI UNA NUOVA CITTA' </h1>
+		</div>
+	</header>
+	<setion class="section">
+		<div class="login-container">
+			<div id="loginMenu">
+				<h1> Aggiungi una citta':</h1>
 			<form th:action="@{/admin/citta}" method="POST">
-			<h1 class="cittaElenco">
-				Aggiungi una citta:
-			</h1>
-			<p>
-				Nome città: <input type="text" name="nome"/>
-			</p>
-			<p>
-				Stato della città: <input type="text" name="stato"/>
-			</p>
-			<span th:text="${messaggioErrore}">
-			Errore
-				</span>
-			<p><button type="submit">
+				<div th:object="${citta}">	
+						
+					<div th:if="${#fields.hasGlobalErrors()}">
+						 <li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+					</div>
+
+			<div class="itemForm">
+				<div style="margin-top: 20%; margin-bottom: -15%;">Nome città:</div> 
+				<input required type="text" name="nome"/>
+			</div>
+			<div class="itemForm">
+				<div style="margin-top: 20%; margin-bottom: -15%;">
+				Stato della città: 
+				</div>
+				<input required type="text" name="stato"/>
+			</div>
+				</div>
+			
+			<div>
+			<button class="button-confirm" type="submit">
 				CONFERMA
 			</button>
-			</p>
-		<!--</fieldset>-->
+			</div>
+			</div>
+		</div>
 	</form>
-	</div>
-	</header>
+	
+	</setion>
+	<footer class="footer">
+		
+	</footer>
 </body>
 
 </html>

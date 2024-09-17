@@ -3,20 +3,38 @@
 
 <head>
 	<title>
-		SiwTravel
+		Dettagli visita
 	</title>
 	<link rel="stylesheet" href="/css/stile.css?version=2" />
 </head>
 <body>
 	<nav>
-	<header>
-		Tutto quello che c'è da sapere:
-	</header>
+	
+		<div class="logo">
+			<img src="/images/mondo2.png" alt="Logo del Sito">
+		</div>	
+				
+		<div class="signup-text" style="margin-left: 80%;  margin-top: 2%;">
+			<a style="font-size: 25px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" href="/logout">
+				Logout <br>
+			</a>
+		</div>
+		
 	</nav>
+	<header>
+		<div style="text-align: center; font-size: 40px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding: 20px;">
+		Tutto quello che c'è da sapere:
+		</div>
+	</header>
+	
+	
+	<section class="section">
+		
 	<span th:if="${visita}">
-		<p>
+		<div style="text-align: center;list-style-position: inside; font-size: 20px; margin-top: -20%;">
+		<h1>
 		    (<span th:text="${visita.luogoDiInteresse.nome}"></span>)
-		</p>  
+		</h1>  
 			<p> 
 				Descrizione:
 				<span th:text="${visita.descrizione}"></span> 
@@ -41,22 +59,43 @@
 				</ul>
 			</p>
 			<p>
-					<span th:if="${visita.prenotabile}">
-						<button type="submit">
-							<a th:href="@{'/prenotazione' + '/visitaId=' + ${visita.id}}"> <!-- luogoid a sx è solo per specificare meglio la pagina -->
-							PRENOTAZIONE
+				<div class="signup-text">
+				<span th:if="${visita.prenotabile}">
+					
+						<a style="font-size: 30px; text-decoration: none; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" th:href="@{'/prenotazione' + '/visitaId=' + ${visita.id}}" > <!-- luogoid a sx è solo per specificare meglio la pagina -->
+							Prenota
 						</a>
-						</button>
-					</span>
-					<span th:unless="${visita.prenotabile}">
-						La visita non è prenotabile
-					</span>
+					
+				</span>
+				<span th:unless="${visita.prenotabile}">
+					La visita non è prenotabile
+				</span>
+				</div>
 			</p>
+			
+			</div>
 	</span>
 	<span th:unless="${visita}">
-		Non esiste
+		<div style="text-align: center; margin-top: -10%; font-size: 30px; color: chocolate;">
+		Ops.. non c'e' ancora nessuna visita disponibile per questo luogo!
+		</div>
 	</span>
+	
+	</section>
+	
+	
+	<footer class="footer" style="margin-top: 30%;">
+			Tel: 069103224 <br>
+			mail: francesca.saraco200@gmail.com <br>
+			indirizzo Sede Principale: via Vito Volterra 63
+	</footer>
 	
 </body>
 
 </html>
+
+
+<!--<button type="submit">
+	</button>-->
+	
+	

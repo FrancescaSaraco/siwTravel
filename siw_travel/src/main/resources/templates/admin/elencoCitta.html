@@ -5,32 +5,53 @@
 	<title>
 		SiwTravel
 	</title>
-	<link rel="stylesheet" href="/css/stile.css?version=2" />
+	<link rel="stylesheet" href="/css/style.css?version=2" />
 </head>
 
 <body>
 	<nav>
-		<h1 class="cittaElenco">
-		Città inserite: <span th:text="${numeroCitta}"></span>
-		</h1>
+		<div class="logo">
+				<img src="/images/mondo2.png" alt="Logo del Sito">
+			</div>
+			<div class="signup-text">
+				<a href="/logout">
+					Logout
+				</a>
+			</div>	
 	</nav>
 	<header>
+		<div class="titolo">
+			<h1> CITTA' PRESENTI NEL SISTEMA </h1>
+		</div>
+	</header>
+	<section class="section">
+		<div style="margin-left: 5%;"  class="text">
 		<p>
-		<!-- <div th: if="${cittas.isEmpty()}"> Non ci sono città nel sistema! </div> -->
-		<span th:if="${cittas}">
+			<div th:if="${cittas.isEmpty()}"> 
+				Non ci sono città nel sistema! 
+			</div> 
+			
+			<div class="signup-text">
+			<div th:unless="${cittas.isEmpty()}">
 			<ul>
 				<li th:each="citta : ${cittas}">
-					<span th:text="${citta.nome} + ' ('+ ${citta.stato} + ')'"> Valencia (Spagna)</span> <!-- Valencia (Spagna) è il pattern di come deve venire sulla pagine-->
+				<span th:text="${citta.nome} + ' ('+ ${citta.stato} + ')'"> Valencia (Spagna)</span>
+				
+				<a th:href="@{'/admin/listaLuoghiDiInteresse' + '/' + ${citta.id}}"
+									           th:text="' modifica luoghi di interesse '"></a> 
+				 
 				</li>
 			</ul>
-		</span>
-	</p>
-	</header>
-	<section>
-		<div>
-			
-		</div>
+				</span>
+			</div>
+			</div>
+		 </p>
+		 </div>
 	</section>
+	
+	<footer class="footer">
+		
+	</footer>
 	
 </body>
 

@@ -30,6 +30,7 @@ public class LuogoDiInteresse {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long id;
 	
+	public String urlImage;
 	
 	public String getIndirizzo() {
 		return indirizzo;
@@ -72,6 +73,13 @@ public class LuogoDiInteresse {
 	}
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+	
+	public String getUrlImage() {
+		return urlImage;
+	}
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
 	}
 	@Override
 	public int hashCode() {

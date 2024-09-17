@@ -5,49 +5,90 @@
 	<title>
 		
 	</title>
-	<link rel="stylesheet" href="/css/stile.css?version=2" />
+	<link rel="stylesheet" href="/css/style.css?version=2" />
 </head>
 
 <body>
-	<form th:action="@{/admin/luogo}" method="POST">
+	<nav>
+		<div class="logo">
+			<img src="/images/mondo2.png" alt="Logo del Sito">
+		</div>
+		<div class="signup-text">
+			<a href="/logout">
+			Logout
+		</a>
+		</div>
+	</nav>
+	
+	<header>
+		<div class="titolo">
+			<h1> FORM AGGIUNGI UN LUOGO DI INTERESSE </h1>
+		</div>
+	</header>
+	
+	<section class="section">
+	<div class="login-container" style="margin-top: 3%;">
+		<div id="loginMenu">
+		<form th:action="@{/admin/luogo}" method="POST">
+			<div th:object="${luogo}">	
+				<div th:if="${#fields.hasGlobalErrors()}">
+				<li th:each="err: ${#fields.globalErrors()}" th:text="${err}">...</li>
+				</div>
 		<h1>
-			Aggiungi un luogo di interesse che è possibile visitare:
+			Aggiungi un luogo:
 		</h1>
-		<p>
-			Indirizzo*: <input type="text" name="indirizzo"/>
-		</p>
-		<p>
-			Tipologia di luogo*: <input type="text" name="tipologia"/>
-		</p>
-		<p>
-			Nome del luogo*: <input type="text" name="nome"/>
-		</p>
-		<p>
-			Valutazione: <input type="text" name="valutazione"/>
-		</p>
-		<p>
-			Descrizione: <input type="text" name="descrizione"/>
-		</p>
+		<div class="item_Form">
+			Indirizzo*: <input required type="text" name="indirizzo"/>
+		</div>
+		<div class="item_Form">
+			Tipologia di luogo*: <input required type="text" name="tipologia"/>
+		</div>
+		<div class="item_Form">
+			Nome del luogo*: <input required type="text" name="nome"/>
+		</div>
+		<div class="item_Form">
+			Valutazione: <input required type="number" name="valutazione"/>
+		</div>
+		<div class="item_Form">
+			Descrizione: <input required type="text" name="descrizione"/>
+		</div>
+		<div class="item_Form">
+			URL immagine: <input required type="text" th:field="${luogo.urlImage}"/>
+		</div>
+		
+		</div>
+		
 		<p>
 			Città:
-			
-			<select name="nomeCitta">
+		<div class="select-wrapper">
+			<select name="nomeCitta" class="styled-select">
 				<option value=""> Scegli una Città </option>
-			<span th:each="citta : ${cittas}"> <!-- cittas è una lista di citta che viene passata dal controller-->
+			<span th:each="citta : ${cittas}"> 
 				<option th:value="*{citta.nome}">
 				<span th:text="*{citta.nome}"> Nome Città*: </span>
 					</option>
 					</span>
 			</select>
+		</div>
+		
+		<div th:if="${messaggioErrore}">
+			<span th:text="${messaggioErrore}"></span>
+		</div>
+		
 		</p>
-		<span th:text="${messaggioErrore}">
-			Errore
-		</span>
-		<p><button type="submit">
-			CONFERMA
-		</button>
-		</p>
+		<div>
+			<button class="button-confirm" type="submit">
+				CONFERMA
+			</button>
+		</div>
 	</form>
+		</div>
+	</div>
+	</section>
+	
+	<footer class="footer" style="margin-top: 5%;">
+		
+	</footer>
 </body>
 
 </html>

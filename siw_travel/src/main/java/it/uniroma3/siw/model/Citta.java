@@ -2,6 +2,7 @@ package it.uniroma3.siw.model;
 
 import java.util.Objects;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,14 +10,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"nome", "stato"}))
 public class Citta {
 	
-	@Column(nullable=false)
+	@NotBlank
+	//@Column(nullable=false)
 	public String nome;
-	@Column(nullable=false)
+	@NotBlank
+	//@Column(nullable=false)
 	public String stato;
 	
 	@Id

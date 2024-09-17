@@ -5,39 +5,49 @@
 	<title>
 		SiwTravel
 	</title>
-	<link rel="stylesheet" href="/css/stile.css?version=2" />
+	<link rel="stylesheet" href="/css/style.css?version=2" />
 </head>
 
 <body>
 	<nav>
-		<h1 class="form">
-			Scegli l'operazione che ti interessa effettuare
-		</h1>
+		<div class="logo">
+			<img src="/images/mondo2.png" alt="Logo del Sito">
+		</div>
+		<div class="signup-text">
+			<a href="/logout">
+				Logout
+			</a>
+		</div>
 	</nav>
 	<header>
-		<p>
-		<a href="/admin/formNewCitta">Aggiungi città</a>
-	</p>
-	<p>
-		<a href="/admin/formNewVisita"> Aggiungi una nuova tipologia di visita </a>
-	</p>
-	<p>
-		<h4><a href="/admin/elencoCitta">	Visualizza tutte le città</a></h4>
-	</p>
-	<p>
-		<a href="/admin/formNewLuogoDiInteresse">Aggiungi un luogo di interesse</a>
-	</p>
-	<!--<p>  
-		<a href="/elencoLuoghi">Visualizza tutti i luoghi di interesse</a>
-	</p>-->
+		<h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: antiquewhite;"> HOME PAGE ADMIN </h1>
 	</header>
-	<section>
-		<div class="index">
-		<a href="/logout">
-			Logout
-		</a>
-	</div>
+	
+	<section class="section">
+		<h2 style="font-family: 'Times New Roman', Times, serif; font-size: 40px; margin-left: 20%; margin-top: 2%; color: darkred;"> Scegli l'operazione che ti interessa effettuare </h2>
+		
+		<div class="text">
+		<div class="signup-text">
+			<ul>
+			<li>
+				<a href="/admin/formNewCitta">  Aggiungi città</a>
+			</li>
+			<li>
+				<a href="/admin/formNewVisita">  Aggiungi una nuova tipologia di visita </a>
+			</li>
+			<li>
+				<a href="/admin/elencoCitta">  Visualizza tutte le città</a>
+			</li>
+			<li>
+				<a href="/admin/formNewLuogoDiInteresse">  Aggiungi un luogo di interesse</a>
+			</li>
+			</ul>
+		</div>
 	</section>
+	</div>
+	<footer class="footer">
+		
+	</footer>
 </body>
 
 </html>

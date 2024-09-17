@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<title>
+	Aggiorna luogo
+</title>
+   <link rel="stylesheet" href="/css/style.css" />
+   
+   
+<body>
+	<nav>
+		<div class="logo">
+			<img src="/images/mondo2.png" alt="Logo del Sito">
+		</div>
+	</nav>
+	
+	<header>
+		<h1> FORM AGGIORNA LUOGO DI INTERESSE </h1>
+	</header>
+	
+	
+	<section class="section">
+		<div class="login-container" style="margin-top: 2%;">
+			<div id="loginMenu">
+		
+		<form th:action="@{'/admin/formAggiornaLuogo/' + ${luogo.id}}" method="post">
+			
+			<div th:object="${luogo}">
+				
+				<div class="item_Form">
+					<span> Modifica nome:  <input type="text" th:field="${luogo.nome}"/> </span>
+				</div>
+				
+				<div class="item_Form">
+					<span> Modifica indirizzo:  <input type="text" th:field="${luogo.indirizzo}" readonly/>  </span>
+				</div>	
+				
+				<div class="item_Form">
+					<span> Modifica tipologia:  <input type="text" th:field="${luogo.tipologia}"/>  </span>
+				</div>	
+				
+				<div class="item_Form">
+					<span> Modifica valutazione dell'utente:  <input type="number" th:field="${luogo.valutazione}"/>  </span>
+				</div>	
+				
+				<div class="item_Form">
+					<span> Modifica descrizione:  <input type="text" th:field="${luogo.descrizione}"/>  </span>
+				</div>	
+				
+				<div class="item_Form">
+					<span> Citta':  <input type="text" th:field="${luogo.citta.nome}" readonly />  </span>
+				</div>	
+				
+				<div class="item_Form">
+					<span> Url immagine:  <input type="text" th:field="${luogo.urlImage}" />  </span>
+				</div>	
+				
+			</div>
+			
+			<button class="button-confirm" type="submit"> conferma le modifiche </button>
+			
+		</form>
+			</div>
+		</div>
+	
+	</section>
+	
+	<footer class="footer" style="margin-top: 5%;">
+		
+	</footer>
+
+</body>
+
+</html>

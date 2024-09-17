@@ -29,7 +29,7 @@ public class Visita {
 	
 	@ManyToOne
 	@JoinColumn(name = "luogoDiInteresse")
-	public LuogoDiInteresse luogoDiInteresse;
+	public LuogoDiInteresse luogoDiInteresse;  
 
 	public List<String> getGiorniApertura() {
 		return giorniApertura;

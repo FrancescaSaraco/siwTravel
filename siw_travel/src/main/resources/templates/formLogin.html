@@ -26,37 +26,48 @@
 						<h1>Login</h1>
 						<form th:action="@{/login}" method="POST">
 						<p>
+							
+				<div class="item_Form">		
 						Username:
 					<input name="username" type="text" required />
+				</div>
 					</p>
 					<p>
+				<div class="item_Form">		
 						Password:
 					<input name="password" type="password" required />
+				</div>	
 					</p>
 					<p>
 						<span th:if="${param.error != null}">Username o password errati</span>
 						</p>
 	
 						<p>
-						<button type="submit">Login</button>
+							
+						<div style="margin-left: 40%; margin-top: 10%; margin-bottom: 20%;">
+							<button class="button-confirmP" type="submit">Login</button>
+						</div>
+						
 						</p>
 					</form>
 						<p>
-						<a th:href="@{/register}" th:text="Registrati">Registrati</a>
+						<div class="signup-text" style="margin-left: 25%;">
+							<p >Non hai un account? </p>
+						<a style="font-size: 25px;" th:href="@{/register}" th:text="Registrati">Registrati</a>
+						</div>
 						</p>
 					</span>
 					</div>
-				</header>
+				
+		</header>
 	
 	
-<footer>
-	<h1 class="pieDiPagina">
-			Riferimenti:
-		</h1>
+	<footer class="footer" style="margin-top: 7%;">
+			<p> Riferimenti: </p>
 			Tel: 069103224 <br>
 			mail: francesca.saraco200@gmail.com <br>
 			indirizzo Sede Principale: via Vito Volterra 63
-</footer>
+	</footer>
 </body>
 
 </html>

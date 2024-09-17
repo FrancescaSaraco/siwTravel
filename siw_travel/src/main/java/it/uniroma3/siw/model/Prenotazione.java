@@ -1,5 +1,6 @@
 package it.uniroma3.siw.model;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -27,6 +28,10 @@ public class Prenotazione {
 	
 	@ManyToOne
 	public Visita visita;
+	
+	public LocalTime orario;
+	
+	public LocalDate data;
 
 	public Long getId() {
 		return id;
@@ -63,6 +68,22 @@ public class Prenotazione {
 
 	public void setVisita(Visita visita) {
 		this.visita = visita;
+	}
+
+	public LocalTime getOrario() {
+		return orario;
+	}
+
+	public void setOrario(LocalTime orario) {
+		this.orario = orario;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
 	@Override

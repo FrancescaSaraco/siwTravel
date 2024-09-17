@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Info Utente
+	</title>
+	<link rel="stylesheet" href="/css/style.css?version=2" />
+</head>
+</header>
+
+<body>
+	<nav>
+		<div class="logo">
+					<img src="/images/mondo2.png" alt="Logo del Sito">
+				</div>
+				<div class="signup-text">
+					<a href="/logout">
+						Logout
+					</a>
+				</div>	
+	</nav>
+	
+	
+	<header>
+		<h1> ACCOUNT E PRENOTAZIONI EFFETTUATE </h1>
+	</header>
+	
+	
+	<section class="section">
+		<div class="textInfo">
+		<div style="text-align: center; margin-top: 10%;">
+			<div style="margin-bottom: 5%;">
+				<h1> <span th:text="${utente.name} + ' ' + ${utente.surname}" >  </span>  </h1>	
+			</div>
+		
+	<div class="signup-text">
+		<ul>
+			<li th:each="prenotazione : ${prenotazioni}">
+				<span th:text="${prenotazione.visita.luogoDiInteresse.nome} + ' ('+ ${prenotazione.orario} + ')'"> </span>
+					<a th:href="@{'/eliminaPrenotazione' + '/' + ${prenotazione.id}}"
+									th:text="' elimina prenotazione '"></a> 	
+				
+			</li>
+		
+		</ul>
+		</div> 
+		<div class="signup-text" style="margin-top: 20%;">
+			<a href="/success">
+			Torna alla home
+			</a>
+		</div>
+		</div>
+		</div>
+	</section>
+	
+	<footer class="footer" style="background-color: rgb(64, 0, 0);">
+		<p> Riferimenti: </p>
+				
+				<p>
+					Tel: 069103224 <br>
+					mail: francesca.saraco200@gmail.com <br>
+					indirizzo Sede Principale: via Vito Volterra 63
+				</p>
+	</footer>
+	
+</body>
+
+</html>

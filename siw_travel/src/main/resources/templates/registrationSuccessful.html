@@ -8,8 +8,17 @@
 
 <body>
 	<nav>
-		
+		<div class="logo">
+					<img src="/images/mondo2.png" alt="Logo del Sito">
+				</div>	
+						
+				<div class="signup-text" style="margin-left: 80%;  margin-top: 2%;">
+					<a style="font-size: 25px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" href="/logout">
+						Logout <br>
+					</a>
+				</div>	
 	</nav>
+	
 	<header>
 		<div th:if="${userDetails}">
 			<span th:text="${userDetails.username}"></span>
@@ -19,10 +28,10 @@
 			<a href="/login">Login</a>
 		</div>
 	</header>
-
-	<div>
-		<a href="/"><img src="/images/logo-siw.png" width="50%"/></a>
-	</div>
+	
+	<section class="section">
+	
+		<div style="align-items: center; text-align: center;">
 	<h1>Congratulazioni ti sei registrato!</h1>
 	<div>
 		<span>Nome: </span>
@@ -37,5 +46,13 @@
 		<span th:text="${user.email}"></span>
 	</div>
 	<a href="/login">Torna al login</a>
+	</div>
+	
+	</section>
+	
+	<footer class="footer" style="margin-top: 20%;">
+		
+	</footer>
+	
 </body>
 </html>

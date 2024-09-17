@@ -11,6 +11,10 @@
 
 <body>
 	<nav>
+		<div class="logo">
+			<img src="/images/mondo2.png" alt="Logo del Sito">
+		</div>
+		
 		<div class="search-box">
 			<form th:action="@{/listaLuoghiDiInteresse}" method="get"> <!-- stai mandando Roma alla pagina luogo di interesse -->
 			<input class="cerca" type="text" placeholder="seleziona la citta" name="citta"/>
@@ -18,46 +22,49 @@
 			</form>
 		</div>
 		
-		<div class="accesso">
-			<!--<i class="fa fa-user-circle-o" aria-hidden="true"></i>-->
+		<!--<div class="accesso">
 			
+		</div>-->
+		
+		<div class="signup-text" style="margin-left: 80%;  margin-top: 2%;">
+			<a style="font-size: 22px; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-decoration: none;"  th:href="@{'/visualizzaDettagli'}"
+						th:text="' le mie prenotazioni '"></a>
 		</div>
-		<!-- <img class="cerca" src="/images/br32.png"/> -->
+		
 	</nav>
 	<header>
 		<div id="flex-container">
 			<img class="flex" src="/images/IMG_0885.jpg"/>
 			<img class="flex" src="/images/IMG_0349.jpg"/>
-			<img class="flex" src="/images/IMG_0949.jpg"/>
+			<img class="flex" src="/images/ninfa.jpg"/>
 			<img class="flex" src="/images/IMG_0935.jpg"/>
 		</div>
 	</header>
 	<section>
-		<!-- main paragraph-->
 		<div class="homePage"> 
 				<h1 class="homePage">
 					Siw Travel
 				</h1> 
 			 </div>
 	</section>
-	<footer>
-		<div id="flexc">
+	<footer class="footer">
+		<div>
 			<span class="flex-c">
-				<h1 class="pieDiPagina">
-			Riferimenti:
-		</h1>
-		
-		<p class="pieDiPagina">
-			<span th:unless="${userDetails}">
-				<a href="/login">
-					Login <br>
-				</a>
-			</span>
-			<span th:if="${userDetails}">
-				<a href="/logout">
+				<div class="l_homePtext">
+				<span th:unless="${utente}">
+					<a style="font-size: 25px;" href="/login">
+						Login <br>
+					</a>
+				</span>
+				<span th:if="${utente}">
+					<a  style="font-size: 25px;" href="/logout">
 					Logout <br>
-				</a>
-			</span>
+					</a>
+				</span>
+				</div>
+		<p> Riferimenti: </p>
+		
+		<p>
 			Tel: 069103224 <br>
 			mail: francesca.saraco200@gmail.com <br>
 			indirizzo Sede Principale: via Vito Volterra 63

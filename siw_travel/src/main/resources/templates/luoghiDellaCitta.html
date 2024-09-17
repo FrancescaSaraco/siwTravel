@@ -10,28 +10,53 @@
 
 <body>
 	<nav>
+		<div class="logo">
+			<img src="/images/mondo2.png" alt="Logo del Sito">
+		</div>	
+		
+		<div class="signup-text" style="margin-left: 80%;  margin-top: 2%;">
+		<a style="font-size: 25px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" href="/logout">
+			Logout <br>
+		</a>
+		</div>
 		
 	</nav>
 	<header>
 		<h1 class="visitaInserita">
 		Questi sono i luoghi che abbiamo trovato per te:
 		</h1>
-		<ul th:if="${luoghi}">  <!-- ul unorder list, lista con i puntini-->
-		<li th:each="luogo : ${luoghi}">  <!-- li list item-->
-			<a th:href="@{'/luoghiDellaCitta' + '/' + ${luogo.id}}">  <!-- luogo.id è al posto di /{id} -->
+		<div class="signup-text">
+		<ul th:if="${luoghi}">  
+		<li th:each="luogo : ${luoghi}">  
+			<a th:href="@{'/luoghiDellaCitta' + '/' + ${luogo.id}}">  
 				<span th:text="*{luogo.nome}">
 				</span>  
 			</a>
 		</li>
 	</ul>
+	</div>
 	</header>
 	<section>
 		<div class="citta"> 
-			<a href="/">
+			<div class="signup-text">
+			<a href="/success">
 			Torna alla home
 			</a>
+			</div>
 		</div>
 	</section>
+	
+	<footer class="footer">
+		
+		<p> Riferimenti: </p>
+				
+				<p>
+					Tel: 069103224 <br>
+					mail: francesca.saraco200@gmail.com <br>
+					indirizzo Sede Principale: via Vito Volterra 63
+				</p>
+		
+	</footer>
 	
 </body>
 

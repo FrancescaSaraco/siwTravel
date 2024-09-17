@@ -10,20 +10,30 @@
 
 <body>
 	<nav>
+		<div class="logo">
+			<img src="/images/mondo2.png" alt="Logo del Sito">
+		</div>
 		
+		<div class="signup-text" style="margin-left: 80%;  margin-top: 2%;">
+			<a style="font-size: 25px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" href="/logout">
+				Logout <br>
+			</a>
+		</div>
 	</nav>
+	
+	
 	<span th:if="${luogo}">
 		<h1 class="titoloLuogo">
-			<b><span th:text="${luogo.nome}"></span></b>		<!-- th:text e' per stampare -->
+			<b><span th:text="${luogo.nome}"></span></b>	
 		    (<span th:text="${luogo.citta.nome}"></span>)
 		</h1> 
-		 <h3 class="titoloLuogo"> 
-			 	<!--Descrizione: -->
+		 	<div style="text-align: center;">
+			<h3> 
 			 	<span th:text="${luogo.descrizione}"></span>
 			</h3> 
-		
+			</div>
 		<header>
-		<div>
+		<div style="margin-top: 10%; margin-left: 10%;">
 			<p> 
 				Tipologia: 
 				<span th:text="${luogo.tipologia}"></span>
@@ -36,14 +46,19 @@
 				Valutazione degli utenti: 
 				<span th:text="${luogo.valutazione}"></span>
 			</p>
-		</div>
-			<div>
-					<button type="submit">
-						<a th:href="@{'/visita' + '/luogoId=' + ${luogo.id}}"> <!-- luogoid a sx è solo per specificare meglio la pagina -->
-							Dettagli visita
-						</a>
-					</button>
-				</div>
+			<p>
+				<span>
+					<div style="text-align: center; margin-top: -17%; margin-left: 20%;">
+					 <img width="70%"  th:src="${luogo.urlImage}"> 
+					 </div>
+				  </span>
+			</p>
+			<div style="margin-top: -18%;" class="signup-text">		
+				<a style="font-size: 25px;" th:href="@{'/visita' + '/luogoId=' + ${luogo.id}}"> 
+					Dettagli visita
+				</a>	
+			</div>
+			</div>
 			</span>
 	<span th:unless="${luogo}">
 		Non esiste
@@ -51,9 +66,7 @@
 	</header>
 	
 	
-	<footer>
-		<br>
-		<br>
+	<footer class="footer">
 		<br>
 			Tel: 069103224 <br>
 			mail: francesca.saraco200@gmail.com <br>
@@ -62,3 +75,6 @@
 </body>
 
 </html>
+
+<!--<button class="button-confirmV" type="submit">
+	</button>-->

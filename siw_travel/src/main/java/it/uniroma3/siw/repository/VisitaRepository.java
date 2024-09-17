@@ -13,4 +13,6 @@ public interface VisitaRepository extends CrudRepository<Visita, Long>{
 	public Visita findByLuogoDiInteresse(LuogoDiInteresse luogo);
 	
 	public Optional<Visita> findById(Long id);
+	
+	public boolean existsByLuogoDiInteresse(LuogoDiInteresse luogoDiInteresse);
 }

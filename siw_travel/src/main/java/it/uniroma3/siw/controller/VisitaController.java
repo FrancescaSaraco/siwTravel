@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,11 +22,14 @@ import it.uniroma3.siw.model.LuogoDiInteresse;
 import it.uniroma3.siw.model.Prenotazione;
 import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.model.Visita;
+import it.uniroma3.siw.repository.VisitaRepository;
 import it.uniroma3.siw.service.CredentialsService;
 import it.uniroma3.siw.service.LuogoDiInteresseService;
 import it.uniroma3.siw.service.PrenotazioneService;
 import it.uniroma3.siw.service.UserService;
 import it.uniroma3.siw.service.VisitaService;
+import it.uniroma3.siw.validator.VisitaValidator;
+import jakarta.validation.Valid;
 
 @Controller
 public class VisitaController {
@@ -33,6 +38,8 @@ public class VisitaController {
 	@Autowired PrenotazioneService prenotazioneService;
 	@Autowired UserService userService;
 	@Autowired CredentialsService credentialsService;
+	@Autowired VisitaValidator visitaValidator;
+	@Autowired VisitaRepository visitaRepository;
 	
 	@GetMapping("/admin/formNewVisita")
 	public String ottieniForm(Model model) {
@@ -46,26 +53,30 @@ public class VisitaController {
 			@RequestParam("descrizione")String descrizione, @RequestParam("nomeLuogo")String nomeLuogo,
 			@RequestParam("prenotabile")Boolean prenotabile,
 			@RequestParam("giorniApertura")List<String> giorniApertura, @RequestParam("costoBiglietto")Double costoBiglietto,
-			@ModelAttribute("visita")Visita visita, Model model) {
-		
-		visita.setCostoBiglietto(costoBiglietto);
-		visita.setDescrizione(descrizione);
-		visita.setGiorniApertura(giorniApertura);
-		visita.setOrarioApertura(orarioApertura);
-		visita.setOrarioChiusura(orarioChiusura);
-		visita.setPrenotabile(prenotabile);
+			@Valid @ModelAttribute("visita")Visita visita,BindingResult result, Model model) {
 		
 		LuogoDiInteresse luogo = this.luogoDiInteresse.findByNome(nomeLuogo);
 		visita.setLuogoDinteresse(luogo);
-		this.visitaService.save(visita);
-		return "admin/visitaSuccesso.html";  
-	}
-
+		
+		this.visitaValidator.validate(visita, result);
+		
+		if(!result.hasErrors()) {
+			visita.setCostoBiglietto(costoBiglietto);
+			visita.setDescrizione(descrizione);
+			visita.setGiorniApertura(giorniApertura);
+			visita.setOrarioApertura(orarioApertura);
+			visita.setOrarioChiusura(orarioChiusura);
+			visita.setPrenotabile(prenotabile);
 	
-//	@GetMapping("/visitaSuccesso")
-//	public String inserimentoEffettuato() {
-//		return "visitaSuccesso.html";  
-//	}
+			this.visitaService.save(visita);
+			return "admin/visitaSuccesso.html";  
+		} else {
+			model.addAttribute("visita", visita);
+			model.addAttribute("luoghi", this.luogoDiInteresse.findAll());
+			return "admin/formNewVisita.html"; 
+		}
+		
+	}
 	
 	@GetMapping("/dettagliVisita/{id}")
 	public String descrizioneLuogo(@PathVariable("id")Long id,Model model) {
@@ -94,15 +105,23 @@ public class VisitaController {
 		return num;
 	}
 	
-	@PostMapping("/prenotazione") 
+	@PostMapping("/prenotazione/{id}") 
 	public String formNewPrenotazione(@ModelAttribute("prenotazione")Prenotazione prenotazione,
-			@ModelAttribute("visita")Visita visita, UserDetails userDetailes , Model model){		// quando ti logghi la mail viene presa in automatico con la classe UserDetails di JPA
+			@ModelAttribute("orarioScelto") LocalTime orario,
+			@PathVariable("id")Long idVisita, Model model){		// quando ti logghi la mail viene presa in automatico con la classe UserDetails di JPA
 		
-		
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Credentials credenziali = this.credentialsService.getCredentials(userDetails.getUsername());
+				
 		prenotazione.setIdentificativoBiglietto(generaIdentificativo());
-		prenotazione.setVisita(visita);
 		
-		Credentials credenziali = this.credentialsService.getCredentials(userDetailes.getUsername());
+		//this.visitaService.save(visita);
+		
+		Visita visitaEntita = this.visitaRepository.findById(idVisita).get();
+		
+		prenotazione.setVisita(visitaEntita);
+		prenotazione.setOrario(orario);
+		
 		
 		User persona = this.userService.findByEmail(credenziali.getUser().getEmail());
 	
@@ -191,7 +210,7 @@ public class VisitaController {
 		
 		String inizio = this.approssimazionePerEccesso(orarioInizio);
 		String fine = this.approssimazionePerDifetto(orarioFine);
-		
+		  
 		while(!(inizio.equals(fine))) {
 			orariDisponibili.add(inizio);
 			inizio = this.aggiorna30min(inizio);

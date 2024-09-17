@@ -27,13 +27,6 @@ public class CittaService {
 		return this.cittaRepository.existsByStatoAndNome(stato, nome);
 	}
 	
-//	public int count(List<Citta> citta) {
-//		if(citta == null) {
-//			return 0;
-//		}
-//		return citta.size();
-//	}
-	
 	public Citta findByNome(String nome) {
 		return cittaRepository.findByNome(nome);
 	}
