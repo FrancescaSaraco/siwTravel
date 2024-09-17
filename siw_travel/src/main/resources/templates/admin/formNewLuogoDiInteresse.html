@@ -61,11 +61,11 @@
 		<p>
 			Città:
 		<div class="select-wrapper">
-			<select name="nomeCitta" class="styled-select">
+			<select name="idCitta" class="styled-select">
 				<option value=""> Scegli una Città </option>
 			<span th:each="citta : ${cittas}"> 
-				<option th:value="*{citta.nome}">
-				<span th:text="*{citta.nome}"> Nome Città*: </span>
+				<option th:value="*{citta.id}">
+				<span th:text="*{citta.nome} + ' (' + *{citta.stato} + ')'"> Nome Città*: </span>
 					</option>
 					</span>
 			</select>

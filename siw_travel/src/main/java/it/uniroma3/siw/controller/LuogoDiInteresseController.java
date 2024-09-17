@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.uniroma3.siw.model.Citta;
 import it.uniroma3.siw.model.LuogoDiInteresse;
 import it.uniroma3.siw.model.Visita;
+import it.uniroma3.siw.repository.CittaRepository;
 import it.uniroma3.siw.service.CittaService;
 import it.uniroma3.siw.service.LuogoDiInteresseService;
 import it.uniroma3.siw.service.VisitaService;
@@ -28,6 +29,9 @@ public class LuogoDiInteresseController {
 	@Autowired
 	VisitaService visitaService;
 	@Autowired LuogoDiInteresseValidator luogoDiInteresseValidator;
+	@Autowired
+	CittaRepository cittaRepository;
+	
 	
 	@GetMapping("/admin/formNewLuogoDiInteresse")
 	public String formNewLuogo(Model model) {
@@ -39,10 +43,10 @@ public class LuogoDiInteresseController {
 	@PostMapping("/admin/luogo") 
 	public String newLuogo(@RequestParam("indirizzo")String indirizzo,@RequestParam("tipologia")String tipologia,
 			@RequestParam("valutazione")Integer valutazione, @RequestParam("nome")String nome, 
-			@RequestParam("nomeCitta")String nomeCitta, @RequestParam("descrizione")String descrizione, 
-			@Valid @ModelAttribute("luogo")LuogoDiInteresse luogo,BindingResult result, Model model){
+			 @RequestParam("descrizione")String descrizione, 
+			@Valid @ModelAttribute("luogo")LuogoDiInteresse luogo,BindingResult result,@RequestParam("idCitta")Long id, Model model){
 		
-		Citta citta = cittaService.findByNome(nomeCitta);
+		Citta citta = this.cittaRepository.findById(id).get();
 		
 		if(citta == null) {
 			model.addAttribute("luogo", luogo);

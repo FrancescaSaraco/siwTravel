@@ -16,8 +16,8 @@
 		</div>
 		
 		<div class="search-box">
-			<form th:action="@{/listaLuoghiDiInteresse}" method="get"> <!-- stai mandando Roma alla pagina luogo di interesse -->
-			<input class="cerca" type="text" placeholder="seleziona la citta" name="citta"/>
+			<form th:action="@{/ricercaPerNome}" method="get"> <!-- stai mandando Roma alla pagina luogo di interesse -->
+			<input class="cerca" type="text" placeholder="seleziona la citta" name="nome"/>
 			<button type="submit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
 			</form>
 		</div>

@@ -13,6 +13,8 @@ public interface CittaRepository extends CrudRepository<Citta, Long> {
   
   public boolean existsByStatoAndNome(String stato, String nome);
 
-  public Citta findByNome(String nome);
+  public List<Citta> findByNome(String nome);
+  
+  public Citta findByStatoAndNome(String stato, String nome);
 }
   

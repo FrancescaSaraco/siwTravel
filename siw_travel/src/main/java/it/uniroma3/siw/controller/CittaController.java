@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.model.Citta;
 import it.uniroma3.siw.repository.CittaRepository;
@@ -59,21 +60,28 @@ public class CittaController {
 		return "admin/elencoCitta.html";
 	}
 	
+	@GetMapping("/ricercaPerNome")
+	public String barraRicerca(@RequestParam("nome")String nome, Model model) {
+		List<Citta> elencoCittaPerNome = this.cittaService.findByNome(nome);
+		model.addAttribute("cittas", elencoCittaPerNome);
+		return "cercaCitta.html";
+	}
 	
-	@GetMapping("/listaLuoghiDiInteresse")
-	public String barraRicerca(@ModelAttribute("citta")String citta, Model model) {
-		Citta cittaEffettiva = this.cittaService.findByNome(citta);
+	
+	@GetMapping("/listaLuoghiDiInteresse/{id}")
+	public String barraRicerca2(@PathVariable("id")Long idcitta, Model model) {
+		Citta cittaEffettiva = this.cittaRepository.findById(idcitta).get();
 		model.addAttribute("luoghi", this.luogoService.findByCitta(cittaEffettiva));
 		return "luoghiDellaCitta.html";
 	}
 	
 	// per tornare indietro
-	@GetMapping("/listaLuoghiDiInteresse/{id}")
+	/*@GetMapping("/listaLuoghiDiInteresse/{id}")
 	public String comeBack(@PathVariable("id")Long idCitta, Model model) {
 		Citta cittaEffettiva = this.cittaRepository.findById(idCitta).get();
 		model.addAttribute("luoghi", this.luogoService.findByCitta(cittaEffettiva));
 		return "luoghiDellaCitta.html";
-	}
+	}*/
 	
 	@GetMapping("/luoghiDellaCitta") 
 	public String ottenimentoLuoghiByCitta(Model model){

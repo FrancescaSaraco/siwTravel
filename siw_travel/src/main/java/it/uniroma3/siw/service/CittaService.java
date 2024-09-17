@@ -27,8 +27,8 @@ public class CittaService {
 		return this.cittaRepository.existsByStatoAndNome(stato, nome);
 	}
 	
-	public Citta findByNome(String nome) {
-		return cittaRepository.findByNome(nome);
+	public List<Citta> findByNome(String nome) {
+		return this.cittaRepository.findByNome(nome);
 	}
 	
 	public int count(List<Citta> cittas) {
