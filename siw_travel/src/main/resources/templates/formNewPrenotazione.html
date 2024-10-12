@@ -37,7 +37,7 @@
 		
 		<div th:object="${prenotazione}">	
 		<p>
-			Data:
+			Data*:
 			<div class="item_Form">
 				<input required type="date" th:field="${prenotazione.data}" />
 			</div>
@@ -45,16 +45,14 @@
 		</div>		
 			
 		<p>
-			Ora:
+			Ora*:
 			<div class="select-wrapper">
-			<select name="orarioScelto" class="styled-selectPre">
-				<option value=""> Selezionare un orario </option>
-				<span th:each="disponibile : ${disponibili}">
-					<option th:value="*{disponibile}">
-					<span th:text="*{disponibile}"> Nome Luogo*: </span>
-					</option>
-					</span>
-			</select>
+				<select name="orarioScelto" class="styled-selectPre" required>
+				    <option value=""> Selezionare un orario </option>
+				    <th:block th:each="disponibile : ${disponibili}">
+				        <option th:value="${disponibile}" th:text="${disponibile}"></option>
+				    </th:block>
+				</select>
 			</div>
 		</p>
 		</div>	

@@ -20,4 +20,6 @@ public interface LuogoDiInteresseRepository extends CrudRepository<LuogoDiIntere
 	  public Optional<LuogoDiInteresse> findById(Long id);
 	  
 	  public LuogoDiInteresse findByNome(String nome);
+	  
+	  
 }

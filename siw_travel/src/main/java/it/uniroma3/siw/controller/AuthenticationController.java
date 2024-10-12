@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.service.CredentialsService;
+import it.uniroma3.siw.service.PrenotazioneService;
 import it.uniroma3.siw.service.UserService;
 import it.uniroma3.siw.validator.CredentialsValidator;
 import it.uniroma3.siw.validator.UserValidator;
@@ -33,6 +34,8 @@ public class AuthenticationController {
     UserValidator userValidator;
     @Autowired
     CredentialsValidator credentialsValidator;
+    @Autowired 
+    PrenotazioneService prenotazioneService;
     
     
     
@@ -78,6 +81,7 @@ public class AuthenticationController {
     	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
             return "admin/index.html";
         }
+   
     	model.addAttribute("utente", utente);
         return "homePage.html";
     }

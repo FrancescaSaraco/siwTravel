@@ -17,4 +17,6 @@ public interface PrenotazioneRepository extends CrudRepository<Prenotazione, Lon
 	public boolean existsByIdentificativoBiglietto(Integer id);
 	
 	public List<Prenotazione> findAllByIntestatarioBiglietto(User user);
+	
+	public List<Prenotazione> findByIntestatarioBiglietto(User user);
 }

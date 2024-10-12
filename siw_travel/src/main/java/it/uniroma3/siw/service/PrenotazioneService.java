@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.model.Prenotazione;
+import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.repository.PrenotazioneRepository;
 import jakarta.transaction.Transactional;
 
@@ -25,4 +26,11 @@ public class PrenotazioneService {
 	public boolean existByIdentificativoBiglietto(Integer id) {
 		return this.prenotazioneRepository.existsByIdentificativoBiglietto(id);
 	}
+	
+	public Long count() {
+		return this.prenotazioneRepository.count();
+	}
+	public Integer effettuatePerUtente(User utente) {
+		return this.prenotazioneRepository.findByIntestatarioBiglietto(utente).size();
+	}  
 }

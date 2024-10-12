@@ -1,5 +1,6 @@
 package it.uniroma3.siw.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class CittaService {
 	public List<Citta> findByNome(String nome) {
 		return this.cittaRepository.findByNome(nome);
 	}
+	
 	
 	public int count(List<Citta> cittas) {
 		if(cittas == null) {

@@ -4,6 +4,7 @@ package it.uniroma3.siw.controller;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -113,20 +114,23 @@ public class VisitaController {
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		Credentials credenziali = this.credentialsService.getCredentials(userDetails.getUsername());
 				
-		prenotazione.setIdentificativoBiglietto(generaIdentificativo());
-		
 		Visita visitaEntita = this.visitaRepository.findById(idVisita).get();
 		
-		prenotazione.setVisita(visitaEntita);
-		prenotazione.setOrario(orario);
+			prenotazione.setIdentificativoBiglietto(generaIdentificativo());
+			
+			
+			prenotazione.setVisita(visitaEntita);
+			prenotazione.setOrario(orario);
+			
+			
+			User persona = this.userService.findByEmail(credenziali.getUser().getEmail());
 		
-		
-		User persona = this.userService.findByEmail(credenziali.getUser().getEmail());
-	
-		
-		prenotazione.setIntestatarioBiglietto(persona);
-		this.prenotazioneService.save(prenotazione);
-		return "prenotazioneSuccesso.html"; 
+			
+			prenotazione.setIntestatarioBiglietto(persona);
+			this.prenotazioneService.save(prenotazione);
+			
+			return "prenotazioneSuccesso.html"; 
+		  
 	}
 	
 	
@@ -197,6 +201,9 @@ public class VisitaController {
 			Integer oraNuova = Integer.parseInt(ore);
 			oraNuova++;
 			ore = Integer.toString(oraNuova);
+			if(ore.length()==1) {
+				ore = "0" + ore;
+			}
 		}
 		
 		return ore + ":" + minuti;

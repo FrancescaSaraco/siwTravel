@@ -40,4 +40,10 @@ public class LuogoDiInteresseService {
 	public LuogoDiInteresse findByNome(String nome) {
 		return this.luogoRepository.findByNome(nome);
 	}
+	
+	public int contaLuoghi(Citta citta) {
+		List<LuogoDiInteresse> luoghi = this.luogoRepository.findByCitta(citta);
+		
+		return luoghi.size();
+	}
 }

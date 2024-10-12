@@ -50,7 +50,7 @@
 		
 		<div class="item_Form">
 			<label>Nome</label>
-			<span><input type="text" placeholder="name"  th:field="${user.name}" /></span>
+			<span><input required type="text" placeholder="name"  th:field="${user.name}" /></span>
 			<span th:if="${#fields.hasErrors('user.name')}" th:errors="${user.name}" th:style="'color:red'">
 			</span>
 		</div>

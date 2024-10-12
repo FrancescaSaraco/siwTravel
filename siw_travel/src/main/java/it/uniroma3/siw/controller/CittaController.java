@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.model.Citta;
+import it.uniroma3.siw.model.LuogoDiInteresse;
 import it.uniroma3.siw.repository.CittaRepository;
 import it.uniroma3.siw.service.CittaService;
 import it.uniroma3.siw.service.LuogoDiInteresseService;
@@ -66,13 +67,17 @@ public class CittaController {
 		model.addAttribute("cittas", elencoCittaPerNome);
 		return "cercaCitta.html";
 	}
-	
+
 	
 	@GetMapping("/listaLuoghiDiInteresse/{id}")
 	public String barraRicerca2(@PathVariable("id")Long idcitta, Model model) {
 		Citta cittaEffettiva = this.cittaRepository.findById(idcitta).get();
-		model.addAttribute("luoghi", this.luogoService.findByCitta(cittaEffettiva));
-		return "luoghiDellaCitta.html";
+		List<LuogoDiInteresse> luoghi = this.luogoService.findByCitta(cittaEffettiva);
+		
+		//int numero = this.luogoService.contaLuoghi(cittaEffettiva);
+		model.addAttribute("numero", luoghi.size());
+		model.addAttribute("luoghi", luoghi);
+		return "luoghiDellaCitta.html"; 
 	}
 	
 	// per tornare indietro

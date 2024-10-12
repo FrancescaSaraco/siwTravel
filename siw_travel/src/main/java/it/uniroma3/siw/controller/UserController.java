@@ -41,11 +41,30 @@ public class UserController {
 	
 	@GetMapping("/eliminaPrenotazione/{id}")
 	public String cancellaPrenotazione(@PathVariable("id") Long id, Model model) {
-		Prenotazione prenotazioneDaCancellare = this.prenotazioneRepository.findById(id).get();
-	
-		this.prenotazioneRepository.delete(prenotazioneDaCancellare);
-		return "homePage.html";
-	}
+		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
+		
+    	User corrente = credentials.getUser();
+    	
+    	
+    	if(this.prenotazioneRepository.existsById(id)) {
+    		Prenotazione prenotazioneDaCancellare = this.prenotazioneRepository.findById(id).get();
+        	
+        	
+        	User utente = prenotazioneDaCancellare.getIntestatarioBiglietto(); 
+        	
+        	
+        	if(corrente.getEmail().equals(utente.getEmail())) {
+        		
+        		this.prenotazioneRepository.delete(prenotazioneDaCancellare);
+        		return "homePage.html";
+        	}
+        	return "formLogin.html";	
+    	}
+    	return "formLogin.html";
+    }  
+    	
+    	
 	
 }
 
